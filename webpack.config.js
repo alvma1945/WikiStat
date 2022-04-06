@@ -8,6 +8,20 @@ module.exports = {
           // entry point of our app
           './client/index.js',
         ],
+        devServer: {
+          host: 'localhost',
+          port:8080,
+          static:{
+              publicPath: '/',
+              directory: path.resolve(__dirname,'dist')
+          },
+          
+          proxy: {
+            '/api/**': {
+              target: 'http://localhost:3000',
+        },
+      },
+    },
         output: {
             //where bundle is created
           path: path.resolve(__dirname, 'dist'),
@@ -43,14 +57,7 @@ module.exports = {
               }
             ]
         }, 
-        devServer: {
-            static:{
-                publicPath: '/',
-                directory: path.resolve(__dirname,'dist')
-            },
-            
-         
-        },
+     
         
         resolve: {
             // Enable importing JS / JSX files without specifying their extension
