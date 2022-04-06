@@ -9,18 +9,19 @@ module.exports = {
           './client/index.js',
         ],
         devServer: {
-          host: 'localhost',
-          port:8080,
+          
+          
           static:{
               publicPath: '/',
               directory: path.resolve(__dirname,'dist')
           },
           
-          proxy: {
-            '/api/**': {
-              target: 'http://localhost:3000',
-        },
-      },
+          proxy: [{
+          context: ['/api','/db'],
+          target: 'http://localhost:3000'
+          }]
+        
+    
     },
         output: {
             //where bundle is created

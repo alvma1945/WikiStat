@@ -16,8 +16,9 @@ function Top10(){
      
       const fetchData =  async (date) => { 
           console.log('date',date)
-          if (!date){
-        await axios('/api').then(data => {
+          if (date===undefined){
+              console.log('here')
+        await axios('/api/').then(data => {
         const array = data.data.article.articles; 
         console.log(array)
         const resultArray =[]
@@ -28,10 +29,11 @@ function Top10(){
         updateArticles(resultArray)
         })
         } else {
+            console.log('why?')
             if(date > today) {
                 alert("Even Wikipedia can't see into the future")
             } else {
-            await axios(`/api/${date}`).then(data => {
+            await axios.get(`/api/${date}`).then(data => {
              
                 const array = data.data.article.articles; 
                 console.log(array)

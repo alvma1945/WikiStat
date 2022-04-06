@@ -1,12 +1,21 @@
 
 import React, { Component, useState, useEffect} from 'react';
 function SearchedArticle(props){
-
+    let newArticle = '';
+    for(let i=0; i<props.article.length;i++){
+        if(props.article[i]!=='_'){
+            newArticle += props.article[i]
+        } else {
+            newArticle += ' '
+        }
+    }
 
     return(
+        <div>
         <li>
-             <a href = {`https://en.wikipedia.org/wiki/${props.article}` }>{`${props.timestamp} ${props.article}  ${props.views}`}</a>
+             {`${props.timestamp} ${newArticle}  ${props.views}`}
         </li>
+        </div>
     )
 }
 

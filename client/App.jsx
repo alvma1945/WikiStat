@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect} from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Routes,  } from 'react-router-dom';
 
 import Top10 from './components/Top10.jsx'
 import SearchArticle from './components/SearchArticle'
@@ -12,18 +12,11 @@ import SearchArticle from './components/SearchArticle'
 
 
 function App(){
-//doesn't return anything
-  
-    // for(let i=2;i<12;i++){
-    //  const [rank , setTop10 ] = useState(json.article.articles[i]);
-    // }
-    
-  
-      
-   
+         
     return( 
+<div id='app'>
+    <BrowserRouter>
     
-    <div id='app'>
         <main>
         <h1>One Stop Shop for Wikipedia MetaData</h1>
         <h2>Trending Articles</h2>
@@ -32,7 +25,11 @@ function App(){
         <SearchArticle/>
         </div>
         </main>
-    </div>)
+    
+    </BrowserRouter>
+     
+</div>
+    )
 };
 
 

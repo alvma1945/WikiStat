@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser')
 const path = require('path');
-const wikiRouter = require('./wikiRouter.js')
-const wikiController = require('./controllers.js')
+const wikiRouter = require('./routers/wikiRouter.js')
+const dbRouter = require('./routers/dbRouter.js')
+
 
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,7 +15,7 @@ app.use(express.json());
  app.use('/api',wikiRouter);
 // app.get('/api',wikiController.top10,(req,res) => {
 //   return res.status(200).json( {article: res.locals.article})})
-
+app.use('/db',(req,res,next)=>{console.log('hello there!'); return next()},dbRouter)
 
 
 
