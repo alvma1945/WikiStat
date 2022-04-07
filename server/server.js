@@ -15,7 +15,7 @@ app.use(express.json());
  app.use('/api',wikiRouter);
 // app.get('/api',wikiController.top10,(req,res) => {
 //   return res.status(200).json( {article: res.locals.article})})
-app.use('/db',(req,res,next)=>{console.log('hello there!'); return next()},dbRouter)
+app.use('/db',dbRouter)
 
 
 
@@ -29,7 +29,7 @@ if(process.env.NODE_ENV==='production'){
     }
 
     
-app.use('/*',(res,req)=>{res.status(400).send('NOT FOUND')});
+app.use('/*',(req,res) => {return res.status(200).sendFile(path.join(__dirname, '../index.html'))});
 
   const globalErrorHandler = (err,req,res,next) => {
     const defaultErr = {

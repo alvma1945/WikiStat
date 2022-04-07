@@ -1,8 +1,9 @@
-import React, { Component, useState, useEffect} from 'react';
-import { BrowserRouter, Routes,  } from 'react-router-dom';
+import React from 'react';
+import {Routes,Route } from 'react-router-dom';
 
-import Top10 from './components/Top10.jsx'
-import SearchArticle from './components/SearchArticle'
+import Home from './components/Home/Home.jsx';
+import Favorites from './components/Favorites/Favorites.jsx'
+
 
 // import { useEffect } from 'react/cjs/react.production.min';
 
@@ -14,21 +15,26 @@ import SearchArticle from './components/SearchArticle'
 function App(){
          
     return( 
-<div id='app'>
-    <BrowserRouter>
+
     
-        <main>
-        <h1>One Stop Shop for Wikipedia MetaData</h1>
-        <h2>Trending Articles</h2>
-        <Top10/>
-        <div>
-        <SearchArticle/>
-        </div>
-        </main>
+    <Routes>
+    <Route exact path='/' element={ <Home/>}/>
+    <Route path="/Favorites" element={<Favorites/>}/>
+    </Routes>
     
-    </BrowserRouter>
-     
-</div>
+   
+        // <main>
+        
+        
+        // <h1>One Stop Shop for Wikipedia MetaData</h1>
+        // <h2>Trending Articles</h2>
+        // <Top10/>
+        // <div>
+        // <SearchArticle/>
+        // </div>
+        
+        // </main>
+    
     )
 };
 

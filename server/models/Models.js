@@ -18,11 +18,11 @@ mongoose.connect(MONGO_URI, {
         article: String,
         views: Number,
         link: String,
-        // search_date: Date
+        search_date: Date,
+        notes: String
       });
                                         //'articles' is the collection name
       const Articles = mongoose.model('articles', articleSchema);
 
-      module.exports = {
-        Articles
-      };
+      module.exports = Articles
+      

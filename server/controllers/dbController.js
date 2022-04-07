@@ -1,5 +1,6 @@
 const axios = require('axios');
-const model = require('../models/Models.js')
+
+const Articles = require('../models/Models.js')
 
 const dbController = {};
 
@@ -13,7 +14,7 @@ const createErr = (errInfo) => {
 dbController.addFavorite = async (req,res,next) => {
     console.log(req.body)
     try{
-    res.locals.newFav = await model.Articles.create(req.body);
+    res.locals.newFav = await Articles.create(req.body);
     return next();
     } catch(e){
         next(createErr({
@@ -22,9 +23,59 @@ dbController.addFavorite = async (req,res,next) => {
         }))
 
     }
+}
+
+dbController.getExisting = async (req,res,next) => {
+   
+    try{
+        res.locals.dbarticles = await Articles.find({});
+    return next();
+    } catch(e){
+        next(createErr({
+            method: 'getExisting',
+            err: 'Issue with getting articles from database'
+        }))
+
+    }
+}
+
+dbController.updateNotes = async(req,res,next)=>{
+   const {id} = req.params
+   
+    
+    const {notes} = req.body
+  
+    try{
+        res.locals.dbupdate = await Articles.findOneAndUpdate({_id:id},{notes: notes},{new:true});
+        console.log(res.locals.dbupdate)
+    return next();
+    } catch(e){
+        next(createErr({
+            method: 'updateNotes',
+            err: 'Issue with getting articles from database'
+        }))
+
+    }
+}
+
+dbController.deleteArticle = async(req,res,next) =>{
+    const {id} = req.params;
+    try{
+    
+    await Articles.deleteOne({_id:id});
+      
+    return next();
+    } catch(e){
+        next(createErr({
+            method: 'deleteArticle',
+            err: 'Issue with getting articles from database'
+        }))
+
+    }
+}
     
 
 
-}
+
 
 module.exports = dbController

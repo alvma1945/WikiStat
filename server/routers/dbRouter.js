@@ -9,4 +9,16 @@ router.post('/add',dbController.addFavorite,(req,res)=> {
     res.status(200).json(res.locals.newFav)
 })
 
+router.get('/get',dbController.getExisting,(req,res)=>{
+    res.status(200).json(res.locals.dbarticles)
+})
+
+router.patch('/:id', dbController.updateNotes,(req,res)=>{
+    res.status(200).json(res.locals.dbupdate)
+})
+
+router.delete('/:id', dbController.deleteArticle,(req,res)=>{
+    res.status(200).end();
+})
+
 module.exports = router

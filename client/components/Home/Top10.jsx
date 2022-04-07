@@ -6,8 +6,8 @@ function Top10(){
     let today = new Date().toISOString().slice(0, 10);
     console.log(today);
     const [stateArticles,updateArticles ] = useState([]);
-    const [stateDate, setDate] = useState(today)
-    console.log(stateDate);
+    
+    
     useEffect( ()=> { 
        
      fetchData().catch(console.error)
@@ -53,7 +53,7 @@ function Top10(){
     async function handleClick(e){
        console.log(dateInput.current.value)
         console.log('you pressed the button')
-        fetchData(dateInput.current.value);
+        fetchData(dateInput.current.value).catch((e)=> alert(e));
         
     }
     

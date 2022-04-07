@@ -9,7 +9,7 @@ module.exports = {
           './client/index.js',
         ],
         devServer: {
-          
+          historyApiFallback:true,
           
           static:{
               publicPath: '/',
@@ -46,9 +46,9 @@ module.exports = {
                 },
               },
               {
-                  test: /\.css$/,
+                  test: /\.s[ac]ss$/i,
                   exclude: /node_modules/,
-                  use: ['style-loader', 'css-loader']
+                  use: ['style-loader', 'css-loader','sass-loader']
               },
               {
                   test:/\.(png|jpg|gif)$/i,
