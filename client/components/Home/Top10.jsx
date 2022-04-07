@@ -52,7 +52,7 @@ function Top10(){
     let dateInput = React.createRef();
     async function handleClick(e){
        console.log(dateInput.current.value)
-        console.log('you pressed the button')
+        
         fetchData(dateInput.current.value).catch((e)=> alert(e));
         
     }
@@ -64,12 +64,19 @@ function Top10(){
 
       console.log('top', topArticles)
       return(
-    <div>
-        <ul>{topArticles}</ul>
-        <form >
-        <input ref={dateInput} type="date" id="date"  ></input>
+    <div className="trending">
+         <form >
+        <input ref={dateInput} type="date" className="date"  ></input>
         <button type="button" id="submit" onClick= {handleClick}>Set Date</button>
         </form>
+        <div id="headers">
+        <h2>Rank</h2>
+        <h2>What's Trending?</h2>
+        <h2>Views</h2>
+        </div>
+         
+        <div className ="trendingWrapper">{topArticles}</div>
+       
     </div>
       )
 

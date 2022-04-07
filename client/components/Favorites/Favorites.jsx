@@ -40,20 +40,25 @@ function Favorites() {
         
         refresh ? setRefresh(false) : setRefresh(true);
     }
+    console.log(Favorites)
 
     
     const dbCards = [];
     for(let i=0;i<Favorites.length;i++){
-        dbCards.push(<Cards key={Favorites[i]._id} id={Favorites[i]._id} article= {Favorites[i].article} views={Favorites[i].views} link={Favorites[i].link} notes={Favorites[i].notes} update={Update} delete={Delete} />)
+        dbCards.push(<Cards key={Favorites[i]._id} id={Favorites[i]._id} article= {Favorites[i].article} views={Favorites[i].views} endDate ={Favorites[i].end_date} startDate ={Favorites[i].start_date} link={Favorites[i].link} notes={Favorites[i].notes} searchDate = {Favorites[i].search_date} update={Update} delete={Delete} />)
 
     }
     return (
         <main>
+            
         <h1> FAVORITES </h1>
+        <div className="favDiv">
+        <button id = "Hpage" onClick={()=> navigate("/")}>Back to Home Page</button>
+        </div>
         <div id="cardsWrapper">
             {dbCards}
         </div>
-        <button onClick={()=> navigate("/")}>Back to Home Page</button>
+        
         </main>
     )
 }

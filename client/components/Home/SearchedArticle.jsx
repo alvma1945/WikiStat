@@ -10,12 +10,20 @@ function SearchedArticle(props){
         }
     }
 
+    let newDate = ''
+    for (let i=0;i<props.timestamp.length-2;i++){
+        if(i===4 || i===6 || i===8 ){
+            newDate+='/';
+        }
+        newDate+=props.timestamp[i]
+    }
+
     return(
-        <div>
+        
         <li>
-             {`${props.timestamp} ${newArticle}  ${props.views}`}
+             {`${newDate}  ---------->  ${props.views}`}
         </li>
-        </div>
+       
     )
 }
 

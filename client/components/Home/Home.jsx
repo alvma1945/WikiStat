@@ -7,9 +7,6 @@ function Home(){
 return (
 <main>
         
-        
-         <h1>One Stop Shop for Wikipedia MetaData</h1>
-         <h2>Trending Articles</h2>
         <Top10/>
         <div>
          <SearchArticle/>

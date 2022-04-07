@@ -1,0 +1,36 @@
+.ArticleSearch{
+    margin: 2%;
+    text-align: center;
+    border-top: solid;
+    border-color: $border-color;
+    
+    ul{
+
+        margin-top:1%;
+    }
+    li{
+        margin-top:5px;
+    }
+
+    #articleLink{
+        border:solid;
+        border-color: $table;
+        margin: 2% 20% 3% 20%;
+        padding-top: 1%;
+        padding-bottom:1%;
+        
+       
+
+        button{
+            margin-top: 2%;
+            width:150px;
+        }
+
+        
+    }
+    .notes{
+        background-color: $background-light;
+    }
+    
+}
+

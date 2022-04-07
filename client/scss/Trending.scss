@@ -1,0 +1,55 @@
+
+
+.trending{
+    color: $base-color;
+    text-align: center;
+   
+
+    #headers{
+        display:flex;
+        flex-direction:row;
+        
+        h2{
+            flex:1;
+            margin-top:2%;
+            font-size:30;
+            
+        }
+   }
+    .trendingWrapper{ 
+        box-shadow: 10px 5px 5px grey;
+        margin-top:2%;
+        display:flex;
+        flex-direction: column;
+        
+        border-bottom: solid;
+        border-color: $table;
+        
+       ul {
+           display:flex;
+           flex-direction: row;
+           text-align: center;
+           flex:1;
+           
+           
+        li{ 
+            background-color: $background-light;
+            list-style-type: none;
+            font-size: 25;
+            flex: 1;
+            border-left: solid;
+            border-top: solid;
+            border-right: solid;
+            border-color: $table;
+        }
+        
+        
+        }
+    }
+
+    
+    
+    
+
+}
+

@@ -1,0 +1,5 @@
+$base-color: rgba(0,0,0,0.8);
+$border-color: lighten($base-color, 10%);
+$background-color:  rgba(245, 245, 245, 0.865);
+$table: lighten($border-color,40%);
+$background-light: lighten($background-color,20%)

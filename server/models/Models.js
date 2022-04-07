@@ -19,6 +19,8 @@ mongoose.connect(MONGO_URI, {
         views: Number,
         link: String,
         search_date: Date,
+        start_date: Date,
+        end_date:Date,
         notes: String
       });
                                         //'articles' is the collection name

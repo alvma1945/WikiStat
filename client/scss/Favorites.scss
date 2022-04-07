@@ -1,0 +1,69 @@
+#cardsWrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: auto;
+     
+    
+    .gridItem{
+        margin:5%;
+        padding:20px;
+        border: solid;
+        border-radius: 10px;
+        box-shadow: 5px 2px 2px grey;
+        background-color: $background-light;
+        ul{
+            list-style-type: none;
+            margin:2%;
+            background-color: $background-light;
+            li{
+                background-color: $background-light;
+                margin-top: 1%;
+                overflow-wrap: break-word;
+            }
+        }
+       
+    }
+}
+textarea{
+    margin:2%
+
+}
+.favDiv{
+   text-align:center;
+}
+
+#Hpage{
+    margin-top: 1%;
+width:150px;
+}
+
+#update{
+    
+    background-color:green
+}
+#update:hover{
+    background-color: whitesmoke;
+    color: green;
+    border: solid green;
+}
+#delete{
+    background-color:red
+}
+
+#delete:hover{
+    background-color: whitesmoke;
+    color: red;
+    border: solid red;
+}
+span{
+    font-weight: bold;
+    background-color: $background-light;
+
+}
+a{
+    font-style: italic;
+    background-color: $background-light;
+}
+a:visited{
+    color:blue;
+}

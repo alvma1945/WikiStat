@@ -20,6 +20,8 @@ function ArticleLink(props){
                 article: props.article,
                 views: props.views,
                 link: props.link,
+                start_date: props.startDate.current.value,
+                end_date: props.endDate.current.value,
                 search_date: props.date,
                 notes: notesInput.current.value})
         }
@@ -29,16 +31,18 @@ function ArticleLink(props){
     }
     }
     let navigate = useNavigate();
+    // console.log(props.startDate.current.value)
+    // console.log(props.endDate.current.value)
    
 return(
-    <div>
+    <div id="linkWrap">
         <span><a href= {props.link}> {props.link} </a> </span>
         <form>
-        <h4>Notes</h4>
-        <input ref={notesInput} type="text" id="notes" defaultValue={props.notes}></input>
-        <button type="button" onClick={handleClick}>Save to Favorites</button>
-        <button onClick={()=> navigate("/Favorites")}>View Favorited links</button>
+        <h2>Add to Favorites</h2>
+        <textarea ref={notesInput} type="text" className="notes" defaultValue={`Add notes`}></textarea>
         </form>
+        <button type="button" onClick={handleClick}>Save to Favorites</button>
+        <button onClick={()=> navigate("/Favorites")}>View Favorites</button>
     </div>
 )
 }

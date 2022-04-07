@@ -13,9 +13,11 @@ function TopArticles(props){
      
       return (
   
-        <li>
-            {`${props.rank} ${newArticle} ${props.views}`}
-        </li>
+        <ul>
+            <li>{props.rank}</li>
+            <li>{newArticle}</li>
+            <li> {props.views}</li>
+        </ul>
        
   
       )
