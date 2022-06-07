@@ -4,7 +4,6 @@ import TopArticles from './TopArticles.jsx'
 
 function Top10(){
     let today = new Date().toISOString().slice(0, 10);
-    console.log(today);
     const [stateArticles,updateArticles ] = useState([]);
     
     
@@ -15,33 +14,26 @@ function Top10(){
       },[]);
      
       const fetchData =  async (date) => { 
-          console.log('date',date)
           if (date===undefined){
-              console.log('here')
         await axios('/api/').then(data => {
         const array = data.data.article.articles; 
-        console.log(array)
         const resultArray =[]
         for(let i=2; i<12; i++){
         resultArray.push(array[i]);
             } 
-        console.log(resultArray)
         updateArticles(resultArray)
         })
         } else {
-            console.log('why?')
             if(date > today) {
                 alert("Even Wikipedia can't see into the future")
             } else {
             await axios.get(`/api/${date}`).then(data => {
              
                 const array = data.data.article.articles; 
-                console.log(array)
                 const resultArray =[]
                 for(let i=2; i<12; i++){
                 resultArray.push(array[i]);
                     } 
-                console.log(resultArray)
                 updateArticles(resultArray)
                
                 })
@@ -51,7 +43,6 @@ function Top10(){
     }
     let dateInput = React.createRef();
     async function handleClick(e){
-       console.log(dateInput.current.value)
         
         fetchData(dateInput.current.value).catch((e)=> alert(e));
         
@@ -62,7 +53,6 @@ function Top10(){
         topArticles.push(<TopArticles key={stateArticles[i].article} article={stateArticles[i].article} rank = {i+1} views = {stateArticles[i].views}/>)
       }
 
-      console.log('top', topArticles)
       return(
     <div className="trending">
          <form >
@@ -72,7 +62,7 @@ function Top10(){
         <div id="headers">
         <h2>Rank</h2>
         <h2>What's Trending?</h2>
-        <h2>Views</h2>
+        <h2>Visits</h2>
         </div>
          
         <div className ="trendingWrapper">{topArticles}</div>

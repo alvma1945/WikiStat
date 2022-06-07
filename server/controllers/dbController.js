@@ -12,7 +12,6 @@ const createErr = (errInfo) => {
     }
 }
 dbController.addFavorite = async (req,res,next) => {
-    console.log(req.body)
     try{
     res.locals.newFav = await Articles.create(req.body);
     return next();
@@ -47,7 +46,6 @@ dbController.updateNotes = async(req,res,next)=>{
   
     try{
         res.locals.dbupdate = await Articles.findOneAndUpdate({_id:id},{notes: notes},{new:true});
-        console.log(res.locals.dbupdate)
     return next();
     } catch(e){
         next(createErr({

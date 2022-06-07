@@ -11,7 +11,6 @@ function SearchArticle(){
 async function fetchArticle(article,startDate,endDate){
     
     await axios.get(`/api/${article}/${startDate}/${endDate}`).then(data => {
-        console.log(data);
         updateSearch(data.data.article);
        
        
@@ -25,7 +24,6 @@ function handleClick(e){
 fetchArticle(sArticle.current.value,sDateInput.current.value,eDateInput.current.value).catch((e) => alert(e))
 
 }
-console.log(searchedArticle);
 
 const resultArray = []
 let totalViews = 0;
@@ -42,7 +40,6 @@ for(let i=0;i<searchedArticle.length;i++){
         articleN = searchedArticle[0].article;
         date = new Date();
         views = totalViews
-        console.log( articleN,date,views,link)
        
     }
     let sDateInput = React.createRef();

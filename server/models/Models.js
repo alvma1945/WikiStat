@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-
-const MONGO_URI = 'mongodb+srv://alvma1945:codesmith@cluster0.tea1x.mongodb.net/soloproject?retryWrites=true&w=majority'
-
+require('dotenv').config()
+const MONGO_URI = process.env.MONGODB_URI
 mongoose.connect(MONGO_URI, {
     // options for the connect method to parse the URI
     useNewUrlParser: true,

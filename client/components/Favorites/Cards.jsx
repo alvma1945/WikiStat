@@ -28,7 +28,7 @@ const Cards = (props) => {
           <li> <span>Article: </span>{ `${newArticle}`}</li>
           <li><span>Start Date: </span>{` ${startDate}`}</li>
           <li><span>End Date: </span>{` ${endDate}`}</li>
-          <li> <span>Total Views:</span>{` ${props.views}`}</li> 
+          <li> <span>Total Visits:</span>{` ${props.views}`}</li> 
           <li> <a href={props.link}> {`${props.link}`}</a></li> 
           <li> <span>Date Searched: </span> {`${searchDate}`}</li>
           <li> <span>Notes: </span>{`${props.notes}`}</li> 

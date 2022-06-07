@@ -40,7 +40,6 @@ function Favorites() {
         
         refresh ? setRefresh(false) : setRefresh(true);
     }
-    console.log(Favorites)
 
     
     const dbCards = [];

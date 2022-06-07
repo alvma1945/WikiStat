@@ -12,7 +12,7 @@ app.use(express.json());
 
 
 
- app.use('/api',wikiRouter);
+app.use('/api',wikiRouter);
 // app.get('/api',wikiController.top10,(req,res) => {
 //   return res.status(200).json( {article: res.locals.article})})
 app.use('/db',dbRouter)
@@ -39,7 +39,6 @@ app.use('/*',(req,res) => {return res.status(200).sendFile(path.join(__dirname, 
     }
 
     const errObj = Object.assign({},defaultErr,err);
-    console.log(errObj.log);
     res.status(errObj.status).json(errObj.messages);
   }
   

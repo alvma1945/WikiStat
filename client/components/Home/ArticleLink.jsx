@@ -7,7 +7,6 @@ function ArticleLink(props){
     
     let notesInput = React.createRef();
     async function handleClick(e){
-        console.log(notesInput);
         if(!props.link || !props.article || !props.date){
             alert('No article provided')
         } else {
@@ -31,8 +30,7 @@ function ArticleLink(props){
     }
     }
     let navigate = useNavigate();
-    // console.log(props.startDate.current.value)
-    // console.log(props.endDate.current.value)
+  
    
 return(
     <div id="linkWrap">

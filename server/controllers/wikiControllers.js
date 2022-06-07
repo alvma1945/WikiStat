@@ -12,7 +12,6 @@ const createErr = (errInfo) => {
 }
 
 wikiController.top10 = async (req,res,next) => {
-    console.log('top10')
     let today = new Date().toISOString().slice(0, 10);
     let yesterday = new Date(today)
     yesterday.setDate(yesterday.getDate()-2)
@@ -38,11 +37,9 @@ wikiController.top10 = async (req,res,next) => {
 };
 
 wikiController.top10dynamic = async (req,res,next) => {
-    console.log('top10Dynamic')
    let {date} = req.params
    
    date = date.replaceAll('-','/')
-   console.log(date);
  
      
     const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/top/en.wikipedia.org/all-access/${date}`
@@ -62,18 +59,15 @@ wikiController.top10dynamic = async (req,res,next) => {
     }
 };
 wikiController.getArticle = async (req,res,next) => {
-    console.log(req.params);
    
    let {article, startDate, endDate} = req.params;
    startDate = startDate.replaceAll('-','')
    endDate = endDate.replaceAll('-','')
-   console.log(article, startDate, endDate)
    const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia.org/all-access/user/${article}/daily/${startDate}/${endDate}`
     try{
    response = await axios.get(url);
    
    res.locals.oneArticle = response.data.items;
-   console.log(res.locals.oneArticle)
    return next()
     } catch{
         next(createErr({
